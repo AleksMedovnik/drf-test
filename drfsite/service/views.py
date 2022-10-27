@@ -1,18 +1,12 @@
 from .models import Post
 from rest_framework import generics
 from .serializers import PostSerializer
-
-
-class PostAPIView(generics.ListAPIView):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
-
-
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.forms import model_to_dict
 
-'''class PostAPIView(APIView):
+
+class PostAPIView(APIView):
     def get(self, request):
         lst = Post.objects.all().values()
         return Response({'posts': list(lst)})
@@ -40,13 +34,16 @@ from django.forms import model_to_dict
         return Response({'post': request.data})
 
 
-class PostDelete(APIView):
-    def delete(self, request, *args, **kwargs):
-        pk = kwargs.get('pk', None)
-        if not pk:
-            return Response({'error': 'Method DELETE not allowed'})
-        Post.objects.get(pk=pk).delete()
-        return Response({'post': f'Delete post {str(pk)}'})'''
+#
+#
+# class PostDelete(APIView):
+#     def delete(self, request, *args, **kwargs):
+#         pk = kwargs.get('pk', None)
+#         if not pk:
+#             return Response({'error': 'Method DELETE not allowed'})
+#         Post.objects.get(pk=pk).delete()
+#         return Response({'post': f'Delete post {str(pk)}'})
+
 
 '''class PostAPIView(APIView):
     def get(self, request):
