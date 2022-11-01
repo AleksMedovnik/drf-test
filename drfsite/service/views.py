@@ -33,16 +33,12 @@ class PostAPIView(APIView):
         instance.save()
         return Response({'post': request.data})
 
-
-#
-#
-# class PostDelete(APIView):
-#     def delete(self, request, *args, **kwargs):
-#         pk = kwargs.get('pk', None)
-#         if not pk:
-#             return Response({'error': 'Method DELETE not allowed'})
-#         Post.objects.get(pk=pk).delete()
-#         return Response({'post': f'Delete post {str(pk)}'})
+    def delete(self, request, *args, **kwargs):
+        pk = kwargs.get('pk', None)
+        if not pk:
+            return Response({'error': 'Method DELETE not allowed'})
+        Post.objects.get(pk=pk).delete()
+        return Response({'post': f'Delete post {str(pk)}'})
 
 
 '''class PostAPIView(APIView):
