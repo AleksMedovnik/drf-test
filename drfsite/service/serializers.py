@@ -21,13 +21,3 @@ class PostSerializer(serializers.Serializer):
         instance.cat_id = validated_data.get('cat_id', instance.cat_id)
         instance.save()
         return instance
-
-
-
-
-# class PostSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Post
-#         fields = ('title', 'content', 'cat_id', 'time_create', 'time_update', 'is_published')
-
-
