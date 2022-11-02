@@ -36,3 +36,10 @@ class PostAPIView(APIView):
     #     instance.cat_id = request.data['cat_id']
     #     instance.save()
     #     return Response({'post': PostSerializer(instance).data})
+
+    # def delete(self, request, *args, **kwargs):
+    #     pk = kwargs.get('pk', None)
+    #     if not pk:
+    #         return Response({'error': 'Method DELETE not allowed'})
+    #     Post.objects.get(pk=pk).delete()
+    #     return Response({'post': f'Delete post {str(pk)}'})
