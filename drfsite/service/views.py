@@ -1,6 +1,11 @@
-from .models import Post
-from .serializers import PostSerializer
-from rest_framework import generics
+from .models import Post, Category
+from .serializers import PostSerializer, CatSerializer
+from rest_framework import generics, viewsets
+
+
+class CatViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CatSerializer
 
 
 class PostAPIList(generics.ListCreateAPIView):
