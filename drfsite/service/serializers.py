@@ -3,6 +3,8 @@ from .models import Post, Category
 
 
 class PostSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
     class Meta:
         model = Post
         fields = '__all__'
