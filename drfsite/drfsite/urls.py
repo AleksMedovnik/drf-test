@@ -8,6 +8,7 @@ router_cat.register(r'cats', CatViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/v1/auth/', include('rest_framework.urls')),
     path('api/v1/postlist/', PostAPIList.as_view()),
     path('api/v1/postlist/<int:pk>/', PostAPIUpdate.as_view()),
     path('api/v1/postdestroy/<int:pk>/', PostAPIDestroy.as_view()),
