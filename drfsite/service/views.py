@@ -8,6 +8,7 @@ from .permissions import IsAdminOrReadOnly, IsOwnerOrReadOnly
 class CatViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CatSerializer
+    permission_classes = (IsAdminUser,)
 
 
 class PostAPIList(generics.ListCreateAPIView):
@@ -16,7 +17,7 @@ class PostAPIList(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
 
-class PostAPIUpdate(generics.UpdateAPIView):
+class PostAPIUpdate(generics.RetrieveUpdateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = (IsOwnerOrReadOnly,)
